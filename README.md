@@ -1,1 +1,1 @@
-# database-exercises
+# This is my repo for database exercises
