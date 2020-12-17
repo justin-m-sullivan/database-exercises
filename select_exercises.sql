@@ -38,5 +38,8 @@ where sales < 20.0;
 select name
 from albums
 where genre = 'Rock';
+
 ## Why do these query results not include albums with a genre of "Hard rock" or "Progressive rock"?
-### We would need to use code that could return genre values that contain the word 'rock' (if such operation exists.) or we would have to list all unique sub-genres to get those values. 
+select name, genre
+from albums
+where genre like '%Rock%';
