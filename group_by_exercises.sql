@@ -52,6 +52,9 @@ select  lower(
 			substr(birth_date, 6, 2),
 			substr(birth_date, 3, 2)	
 				)
-			) as username, count(*)
+			) as username, count(*) as duplicate_count
 from employees
-group by username;
+group by username
+HAVING duplicate_count > 1
+ORDER BY duplicate_count desc;
+
