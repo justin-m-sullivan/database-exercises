@@ -132,11 +132,14 @@ LIMIT 1;
 
 
 ## 10 Bonus Find the names of all current employees, their department name, and their current managers name.
-SELECT CONCAT(e.first_name, '-', e.last_name) , d.dept_name, CONCAT(e.first_name, ' ', last_name) as 'Manager Name'
+
+SELECT CONCAT(e.first_name, '_', e.last_name) as emp_name, dept_name, CONCAT(managers.first_name, ' ', managers.last_name)
 FROM employees as e
-JOIN dept_emp as de
-     on e.emp_no = de.emp_no
-JOIN departments as d
-     on e.
+JOIN dept_emp as de using(emp_no)
+JOIN departments as d using(dept_no)
+JOIN dept_manager using(dept_no)
+JOIN employees as managers on managers.emp_no = dept_manager.emp_no
+WHERE dept_manager.to_date > now()
+AND de.to_date > now();
 
 ## 11 Bonus Who is the highest paid employee within each department.
