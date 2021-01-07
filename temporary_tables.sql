@@ -46,5 +46,7 @@ LIMIT 100;
 ## 2. Create a temporary table based on the payment table from the sakila database.
 
 ##  Write the SQL necessary to transform the amount column such that it is stored as an integer representing the number of cents of the payment. For example, 1.99 should become 199.
-
+```
+alter table sakila_payment modify amount int;
+```
 ## 3. Find out how the current average pay in each department compares to the overall, historical average pay. In order to make the comparison easier, you should use the Z-score for salaries. In terms of salary, what is the best department right now to work for? The worst?
