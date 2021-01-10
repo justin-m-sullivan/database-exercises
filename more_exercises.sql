@@ -90,6 +90,10 @@ from country
 group by region asc;
 ```
 # Sakila Database
+```
+use sakila;
+```
+
 ## 1. Display the first and last names in all lowercase of all the actors.
 ```
 select lower(first_name), lower(last_name)
@@ -146,9 +150,18 @@ from staff
 join address using(address_id);
 ```
 
-/*
+
 ## 10. Use JOIN to display the total amount rung up by each staff member in August of 2005.
-List each film and the number of actors who are listed for that film.
+## 11. List each film and the number of actors who are listed for that film.
+;
+use sakila;
+
+select title, count(actor_id)
+from film
+join film_actor on film.film_id = film_actor.film_id
+group by title;
+
+/*
 How many copies of the film Hunchback Impossible exist in the inventory system?
 The music of Queen and Kris Kristofferson have seen an unlikely resurgence. As an unintended consequence, films starting with the letters K and Q have also soared in popularity. Use subqueries to display the titles of movies starting with the letters K and Q whose language is English.
 Use subqueries to display all actors who appear in the film Alone Trip.
