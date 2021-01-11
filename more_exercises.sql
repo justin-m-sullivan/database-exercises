@@ -161,8 +161,17 @@ from film
 join film_actor on film.film_id = film_actor.film_id
 group by title;
 
+
+## 12. How many copies of the film Hunchback Impossible exist in the inventory system?
+select inventory_id, inventory.film_id
+from inventory
+join film on film.film_id = inventory.film_id
+where title in('Hunchback Impossible');
+
+-- Answer: 6 copies of Hunchback Impossible are in the inventory system
+
+
 /*
-How many copies of the film Hunchback Impossible exist in the inventory system?
 The music of Queen and Kris Kristofferson have seen an unlikely resurgence. As an unintended consequence, films starting with the letters K and Q have also soared in popularity. Use subqueries to display the titles of movies starting with the letters K and Q whose language is English.
 Use subqueries to display all actors who appear in the film Alone Trip.
 You want to run an email marketing campaign in Canada, for which you will need the names and email addresses of all Canadian customers.
